@@ -18,25 +18,31 @@ USE `order_ahead`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `orders`
+-- Table structure for table `orderItems`
 --
 
-DROP TABLE IF EXISTS `orders`;
+DROP TABLE IF EXISTS `orderItems`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `orders` (
-  `orderID` int NOT NULL,
-  `menuID` varchar(45) NOT NULL
+CREATE TABLE `orderItems` (
+  `idFoodItem` int NOT NULL,
+  `idOrder` int NOT NULL,
+  `idMenu` int NOT NULL,
+  PRIMARY KEY (`idFoodItem`),
+  KEY `idMenu_idx` (`idMenu`),
+  KEY `idOrder_idx_idx` (`idOrder`),
+  CONSTRAINT `idMenu_idx` FOREIGN KEY (`idMenu`) REFERENCES `menu` (`idMenu`),
+  CONSTRAINT `idOrder_idx` FOREIGN KEY (`idOrder`) REFERENCES `orders` (`idOrder`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `orders`
+-- Dumping data for table `orderItems`
 --
 
-LOCK TABLES `orders` WRITE;
-/*!40000 ALTER TABLE `orders` DISABLE KEYS */;
-/*!40000 ALTER TABLE `orders` ENABLE KEYS */;
+LOCK TABLES `orderItems` WRITE;
+/*!40000 ALTER TABLE `orderItems` DISABLE KEYS */;
+/*!40000 ALTER TABLE `orderItems` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -48,4 +54,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-03-06 18:34:59
+-- Dump completed on 2022-03-07 14:26:43
