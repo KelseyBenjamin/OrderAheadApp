@@ -148,7 +148,6 @@ def checkout():
         return render_template("/ordercomplete.html", ordernumber=idorder)
 
 
-
 @app.route("/menu.html")
 def menu():
     return render_template("menu.html")
@@ -166,33 +165,6 @@ def profile_business():
     working_lastwk_nov = database.working_lastwk_nov()
     # 2
     usermsc_orders = database.user_orders_msc(userid)
-    # 3
-    most_lunchorders = database.most_locations_lunch()
-    # 4
-    sum_order = database.sum_past_orders(userid)
-    # 5
-    userzone_orders = database.user_orders_zone()
-    # 6
-    fish_orders = database.zone_fishorders()
-    # 7
-    max_breakfast = database.most_locations_breakfast()
-    # 8
-    locrev = database.locations_revenues()
-    # 9
-    mostorders = database.most_locations_diner()
-    # 10
-    answerlist = database.user_twentytwo_total_orders()
-    return render_template("profile.html", user=session['user'],
-                           nov=working_lastwk_nov,
-                           timesMSC=usermsc_orders,
-                           lunchlocation=most_lunchorders,
-                           ordersTotal=sum_order,
-                           customers=userzone_orders,
-                           totalFish=fish_orders,
-                           breakfastlocation=max_breakfast,
-                           locations=locrev,
-                           location=mostorders,
-                           user_twentytwo=answerlist[0], times_user=answerlist[1])
 
 
 if __name__ == '__main__':

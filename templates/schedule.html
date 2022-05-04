@@ -89,12 +89,16 @@ body {
 </div>
      <br>  <br>
 <div class="acen">
-    <ul>
+    <table>
     {% for x in schedule %}
-        <li>{{x[0]}} {{x[1]}} {{x[2]}} {{x[3]}}</li>
-
+        <tr>
+            <td>{{x[0]}}</td>
+            <td>{{x[1]}}</td>
+            <td>{{x[2]}}</td>
+            <td>{{x[3]}}</td>
+        </tr>
         {% endfor %}
-    </ul>
+    </table>
 </div>
 
 
